@@ -1,0 +1,18 @@
+{
+    "name": "mquinn/heap-helper",
+    "description": "This composer package assists with the Heap server side API.",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Mquinn\\HeapHelper\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mitchell Quinn",
+            "email": "mdq2@live.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
