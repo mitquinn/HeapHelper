@@ -14,5 +14,14 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {}
+    "require": {
+        "php": "^8.0",
+        "ext-json": "*",
+        "ext-openssl": "*",
+        "guzzlehttp/guzzle": "^7.4"
+    },
+    "require-dev": {
+        "symfony/dotenv": "^5.3",
+        "phpunit/phpunit": "^9.5"
+    }
 }
