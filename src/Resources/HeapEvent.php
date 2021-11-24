@@ -5,40 +5,38 @@ namespace Mquinn\HeapHelper\Resources;
 
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Pure;
+use Mquinn\HeapHelper\Interfaces\HeapResourceInterface;
+use Mquinn\HeapHelper\Traits\HasHeapUserIdentity;
+use Mquinn\HeapHelper\Traits\HasProperties;
 
-class Event
+class HeapEvent implements HeapResourceInterface
 {
+    use HasHeapUserIdentity, HasProperties;
 
-    /** @var string $name */
-    private string $name;
-
-    /** @var string $identity */
-    protected string $identity;
-
-    /** @var array|null $properties */
-    private ?array $properties;
+    /** @var string $heapEventName */
+    protected string $heapEventName;
 
     /** @var string|null $timestamp */
-    private ?string $timestamp;
+    protected ?string $timestamp;
 
     /** @var string|null $idempotencyKey */
-    private ?string $idempotencyKey;
+    protected ?string $idempotencyKey;
 
     /**
      * TODO: Validation to ensure name of event does not exceed 1024 characters
      * TODO: Validation to ensure property key:value not exceed 1024 characters
      * TODO: Validation to ensure property is limited to single key:value pair
      * TODO: Validation that timestamp is ISO8601 format
-     * @param string $name
-     * @param string $identity
+     * @param string $heapEventName
+     * @param string $heapUserIdentity
      * @param array|null $properties
      * @param string|null $timestamp
      * @param string|null $idempotencyKey
      */
-    public function __construct(string $name, string $identity, array $properties = null, string $timestamp = null, string $idempotencyKey = null)
+    public function __construct(string $heapEventName, string $heapUserIdentity, array $properties = null, string $timestamp = null, string $idempotencyKey = null)
     {
-        $this->setName($name);
-        $this->setIdentity($identity);
+        $this->setHeapEventName($heapEventName);
+        $this->setHeapUserIdentity($heapUserIdentity);
         $this->setProperties($properties);
         $this->setTimestamp($timestamp);
         $this->setIdempotencyKey($idempotencyKey);
@@ -58,8 +56,8 @@ class Event
     public function generateRequestBody(): array
     {
         $body = [
-            'identity' => $this->getIdentity(),
-            'event' => $this->getName(),
+            'identity' => $this->getHeapUserIdentity(),
+            'event' => $this->getHeapEventName(),
         ];
 
         if (!is_null($this->getProperties())) {
@@ -82,56 +80,18 @@ class Event
     /**
      * @return string
      */
-    public function getName(): string
+    public function getHeapEventName(): string
     {
-        return $this->name;
+        return $this->heapEventName;
     }
 
     /**
-     * @param string $name
-     * @return Event
+     * @param string $heapEventName
+     * @return HeapEvent
      */
-    public function setName(string $name): Event
+    public function setHeapEventName(string $heapEventName): HeapEvent
     {
-        $this->name = $name;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getIdentity(): string
-    {
-        return $this->identity;
-    }
-
-    /**
-     * @param string $identity
-     * @return Event
-     */
-    public function setIdentity(string $identity): Event
-    {
-        $this->identity = $identity;
-        return $this;
-    }
-
-    /**
-     * @return array|null
-     */
-    public function getProperties(): ?array
-    {
-        return $this->properties;
-    }
-
-    /**
-     * TODO: Validation to ensure property key:value not exceed 1024 characters
-     * TODO: Validation to ensure property is limited to single key:value pair
-     * @param array|null $properties
-     * @return Event
-     */
-    public function setProperties(?array $properties): Event
-    {
-        $this->properties = $properties;
+        $this->heapEventName = $heapEventName;
         return $this;
     }
 
@@ -146,9 +106,9 @@ class Event
 
     /**
      * @param string|null $timestamp
-     * @return Event
+     * @return HeapEvent
      */
-    public function setTimestamp(?string $timestamp): Event
+    public function setTimestamp(?string $timestamp): HeapEvent
     {
         $this->timestamp = $timestamp;
         return $this;
@@ -164,9 +124,9 @@ class Event
 
     /**
      * @param string|null $idempotencyKey
-     * @return Event
+     * @return HeapEvent
      */
-    public function setIdempotencyKey(?string $idempotencyKey): Event
+    public function setIdempotencyKey(?string $idempotencyKey): HeapEvent
     {
         $this->idempotencyKey = $idempotencyKey;
         return $this;
