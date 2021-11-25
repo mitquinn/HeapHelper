@@ -18,7 +18,7 @@ class HeapConfiguration
      * @param string $appId
      * @param string|null $baseUrl
      */
-    public function __construct(string $apiKey, string $appId, string $baseUrl = null)
+    public function __construct(string $apiKey, string $appId, ?string $baseUrl = null)
     {
         $this->setAppId($appId);
         $this->setApiKey($apiKey);

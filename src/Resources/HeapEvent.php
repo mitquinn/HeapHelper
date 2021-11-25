@@ -3,6 +3,8 @@
 namespace Mquinn\HeapHelper\Resources;
 
 
+use DateTime;
+use InvalidArgumentException;
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Pure;
 use Mquinn\HeapHelper\Interfaces\HeapResourceInterface;
@@ -16,24 +18,20 @@ class HeapEvent implements HeapResourceInterface
     /** @var string $heapEventName */
     protected string $heapEventName;
 
-    /** @var string|null $timestamp */
-    protected ?string $timestamp;
+    /** @var DateTime|null $timestamp */
+    protected ?DateTime $timestamp;
 
     /** @var string|null $idempotencyKey */
     protected ?string $idempotencyKey;
 
     /**
-     * TODO: Validation to ensure name of event does not exceed 1024 characters
-     * TODO: Validation to ensure property key:value not exceed 1024 characters
-     * TODO: Validation to ensure property is limited to single key:value pair
-     * TODO: Validation that timestamp is ISO8601 format
      * @param string $heapEventName
      * @param string $heapUserIdentity
      * @param array|null $properties
-     * @param string|null $timestamp
+     * @param DateTime|null $timestamp
      * @param string|null $idempotencyKey
      */
-    public function __construct(string $heapEventName, string $heapUserIdentity, array $properties = null, string $timestamp = null, string $idempotencyKey = null)
+    public function __construct(string $heapEventName, string $heapUserIdentity, ?array $properties = null, ?DateTime $timestamp = null, ?string $idempotencyKey = null)
     {
         $this->setHeapEventName($heapEventName);
         $this->setHeapUserIdentity($heapUserIdentity);
@@ -91,24 +89,29 @@ class HeapEvent implements HeapResourceInterface
      */
     public function setHeapEventName(string $heapEventName): HeapEvent
     {
+        if (strlen($heapEventName) > 1024) {
+            throw new InvalidArgumentException("The event name must be no greater than 1024 characters.");
+        }
         $this->heapEventName = $heapEventName;
         return $this;
     }
 
     /**
-     * TODO: Validation that timestamp is ISO8601 format
-     * @return string|null
+     * @return DateTime|null
      */
     public function getTimestamp(): ?string
     {
-        return $this->timestamp;
+        if (is_null($this->timestamp)) {
+            return $this->timestamp;
+        }
+        return $this->timestamp->format(DateTime::ATOM);
     }
 
     /**
-     * @param string|null $timestamp
+     * @param DateTime|null $timestamp
      * @return HeapEvent
      */
-    public function setTimestamp(?string $timestamp): HeapEvent
+    public function setTimestamp(?DateTime $timestamp): HeapEvent
     {
         $this->timestamp = $timestamp;
         return $this;
