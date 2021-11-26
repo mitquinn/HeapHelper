@@ -30,8 +30,8 @@ class HeapHelperTest extends TestCase
         }
 
 
-        $appId = $_ENV['HEAP_APP_ID'];
-        $apiKey = $_ENV['HEAP_API_KEY'];
+        $appId = $_SERVER['HEAP_APP_ID'];
+        $apiKey = $_SERVER['HEAP_API_KEY'];
 
         $heapConfiguration = new HeapConfiguration($apiKey, $appId);
         $heapHelper = new Mquinn\HeapHelper\HeapHelper($heapConfiguration);
