@@ -30,45 +30,6 @@ jobs:
             -   name: "Normalize composer.json"
                 run: "composer-normalize --dry-run"
 
-            - name: "PHP-CS-Fixer"
-              uses: "docker://oskarstark/php-cs-fixer-ga:2.18.0"
-              with:
-                args: "--dry-run --diff-format udiff"
-
-    static-code-analysis:
-        name: "Static Code Analysis"
-
-        runs-on: "ubuntu-latest"
-
-        steps:
-            -   name: "Checkout"
-                uses: "actions/checkout@v2.3.4"
-
-            -   name: "Install PHP"
-                uses: "shivammathur/setup-php@2.9.0"
-                with:
-                    coverage: "none"
-                    extensions: "mbstring"
-                    php-version: "8.0"
-
-            -   name: "Install dependencies with composer"
-                run: "composer update --no-interaction --no-progress && composer i --working-dir=ci"
-
-            -   name: "Run vimeo/psalm"
-                run: "ci/vendor/bin/psalm --threads=4"
-
-    roave-bc-check:
-        name: "Roave BC Check"
-
-        runs-on: "ubuntu-latest"
-
-        steps:
-          - name: "Checkout code"
-            uses: "actions/checkout@v2"
-
-          - name: "Roave BC Check"
-            uses: "docker://nyholm/roave-bc-check-ga"
-
     tests:
         name: "Tests"
 
