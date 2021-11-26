@@ -1,20 +1,14 @@
 {
     "name": "mitquinn/heap-helper",
-    "description": "This composer package assists with the Heap server side API.",
     "type": "library",
+    "description": "This composer package assists with the Heap server side API.",
     "license": "GPL-3.0-or-later",
-    "autoload": {
-        "psr-4": {
-            "Mquinn\\HeapHelper\\": "src/"
-        }
-    },
     "authors": [
         {
             "name": "Mitchell Quinn",
             "email": "mdq2@live.com"
         }
     ],
-    "minimum-stability": "stable",
     "require": {
         "php": "^8.0",
         "ext-json": "*",
@@ -22,7 +16,13 @@
         "guzzlehttp/guzzle": "^7.4"
     },
     "require-dev": {
-        "symfony/dotenv": "^5.3",
-        "phpunit/phpunit": "^9.5"
-    }
+        "phpunit/phpunit": "^9.5",
+        "symfony/dotenv": "^5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mquinn\\HeapHelper\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
 }
