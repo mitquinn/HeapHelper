@@ -1,16 +1,16 @@
 <?php
 
-namespace Mquinn\HeapHelper;
+namespace Mitquinn\HeapHelper;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
-use Mquinn\HeapHelper\Interfaces\HeapHelperInterface;
-use Mquinn\HeapHelper\Resources\HeapAccount;
-use Mquinn\HeapHelper\Resources\HeapAccounts;
-use Mquinn\HeapHelper\Resources\HeapEvent;
-use Mquinn\HeapHelper\Resources\HeapEvents;
-use Mquinn\HeapHelper\Resources\HeapUser;
-use Mquinn\HeapHelper\Resources\HeapUsers;
+use Mitquinn\HeapHelper\Interfaces\HeapHelperInterface;
+use Mitquinn\HeapHelper\Resources\HeapAccount;
+use Mitquinn\HeapHelper\Resources\HeapAccounts;
+use Mitquinn\HeapHelper\Resources\HeapEvent;
+use Mitquinn\HeapHelper\Resources\HeapEvents;
+use Mitquinn\HeapHelper\Resources\HeapUser;
+use Mitquinn\HeapHelper\Resources\HeapUsers;
 use PHPUnit\Util\Xml\ValidationResult;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;

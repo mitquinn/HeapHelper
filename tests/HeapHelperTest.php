@@ -1,13 +1,13 @@
 <?php
 
-use Mquinn\HeapHelper\HeapConfiguration;
-use Mquinn\HeapHelper\HeapHelper;
-use Mquinn\HeapHelper\Resources\HeapAccount;
-use Mquinn\HeapHelper\Resources\HeapAccounts;
-use Mquinn\HeapHelper\Resources\HeapEvent;
-use Mquinn\HeapHelper\Resources\HeapEvents;
-use Mquinn\HeapHelper\Resources\HeapUser;
-use Mquinn\HeapHelper\Resources\HeapUsers;
+use Mitquinn\HeapHelper\HeapConfiguration;
+use Mitquinn\HeapHelper\HeapHelper;
+use Mitquinn\HeapHelper\Resources\HeapAccount;
+use Mitquinn\HeapHelper\Resources\HeapAccounts;
+use Mitquinn\HeapHelper\Resources\HeapEvent;
+use Mitquinn\HeapHelper\Resources\HeapEvents;
+use Mitquinn\HeapHelper\Resources\HeapUser;
+use Mitquinn\HeapHelper\Resources\HeapUsers;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Client\ClientExceptionInterface;
 
@@ -34,7 +34,7 @@ class HeapHelperTest extends TestCase
         $apiKey = $_SERVER['HEAP_API_KEY'];
 
         $heapConfiguration = new HeapConfiguration($apiKey, $appId);
-        $heapHelper = new Mquinn\HeapHelper\HeapHelper($heapConfiguration);
+        $heapHelper = new Mitquinn\HeapHelper\HeapHelper($heapConfiguration);
         $this->setHeapHelper($heapHelper);
     }
 

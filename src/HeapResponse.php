@@ -1,6 +1,6 @@
 <?php
 
-namespace Mquinn\HeapHelper;
+namespace Mitquinn\HeapHelper;
 
 use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;

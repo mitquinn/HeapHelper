@@ -1,6 +1,6 @@
 <?php
 
-namespace Mquinn\HeapHelper\Interfaces;
+namespace Mitquinn\HeapHelper\Interfaces;
 
 interface HeapResourceInterface
 {

@@ -1,14 +1,14 @@
 <?php
 
-namespace Mquinn\HeapHelper\Interfaces;
+namespace Mitquinn\HeapHelper\Interfaces;
 
-use Mquinn\HeapHelper\HeapResponse;
-use Mquinn\HeapHelper\Resources\HeapAccount;
-use Mquinn\HeapHelper\Resources\HeapAccounts;
-use Mquinn\HeapHelper\Resources\HeapEvent;
-use Mquinn\HeapHelper\Resources\HeapEvents;
-use Mquinn\HeapHelper\Resources\HeapUser;
-use Mquinn\HeapHelper\Resources\HeapUsers;
+use Mitquinn\HeapHelper\HeapResponse;
+use Mitquinn\HeapHelper\Resources\HeapAccount;
+use Mitquinn\HeapHelper\Resources\HeapAccounts;
+use Mitquinn\HeapHelper\Resources\HeapEvent;
+use Mitquinn\HeapHelper\Resources\HeapEvents;
+use Mitquinn\HeapHelper\Resources\HeapUser;
+use Mitquinn\HeapHelper\Resources\HeapUsers;
 
 interface HeapHelperInterface
 {

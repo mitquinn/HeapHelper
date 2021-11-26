@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Mquinn\\HeapHelper\\": "src/"
+            "Mitquinn\\HeapHelper\\": "src/"
         }
     },
     "minimum-stability": "stable"

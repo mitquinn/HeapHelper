@@ -1,6 +1,6 @@
 <?php
 
-namespace Mquinn\HeapHelper\Traits;
+namespace Mitquinn\HeapHelper\Traits;
 
 use InvalidArgumentException;
 

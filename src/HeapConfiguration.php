@@ -1,6 +1,6 @@
 <?php
 
-namespace Mquinn\HeapHelper;
+namespace Mitquinn\HeapHelper;
 
 class HeapConfiguration
 {

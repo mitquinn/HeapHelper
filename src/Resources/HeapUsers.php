@@ -1,9 +1,9 @@
 <?php
 
-namespace Mquinn\HeapHelper\Resources;
+namespace Mitquinn\HeapHelper\Resources;
 
 use JetBrains\PhpStorm\Pure;
-use Mquinn\HeapHelper\Interfaces\HeapResourceInterface;
+use Mitquinn\HeapHelper\Interfaces\HeapResourceInterface;
 
 class HeapUsers implements HeapResourceInterface
 {

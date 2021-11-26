@@ -1,11 +1,11 @@
 <?php
 
-namespace Mquinn\HeapHelper\Resources;
+namespace Mitquinn\HeapHelper\Resources;
 
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Pure;
-use Mquinn\HeapHelper\Interfaces\HeapResourceInterface;
-use Mquinn\HeapHelper\Traits\HasProperties;
+use Mitquinn\HeapHelper\Interfaces\HeapResourceInterface;
+use Mitquinn\HeapHelper\Traits\HasProperties;
 
 class HeapAccount implements HeapResourceInterface
 {
