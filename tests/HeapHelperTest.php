@@ -22,7 +22,13 @@ class HeapHelperTest extends TestCase
 
         //Load configuration
         $dotenv = new Symfony\Component\Dotenv\Dotenv();
-        $dotenv->load(__DIR__.'/../.env.dev');
+
+        try {
+            $dotenv->load(__DIR__.'/../.env.dev');
+        } catch (Exception $exception) {
+            //If this fails to load no worries.
+        }
+
 
         $appId = $_ENV['HEAP_APP_ID'];
         $apiKey = $_ENV['HEAP_API_KEY'];
