@@ -2,6 +2,9 @@
 
 namespace Mitquinn\HeapHelper\Tests;
 
+use DateTime;
+use Exception;
+use InvalidArgumentException;
 use Mitquinn\HeapHelper\HeapConfiguration;
 use Mitquinn\HeapHelper\HeapHelper;
 use Mitquinn\HeapHelper\Resources\HeapAccount;
@@ -12,6 +15,7 @@ use Mitquinn\HeapHelper\Resources\HeapUser;
 use Mitquinn\HeapHelper\Resources\HeapUsers;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Client\ClientExceptionInterface;
+use Symfony\Component\Dotenv\Dotenv;
 
 class HeapHelperTest extends TestCase
 {
@@ -23,7 +27,7 @@ class HeapHelperTest extends TestCase
         parent::setUp();
 
         //Load configuration
-        $dotenv = new Symfony\Component\Dotenv\Dotenv();
+        $dotenv = new Dotenv();
 
         try {
             $dotenv->load(__DIR__.'/../.env.dev');
@@ -36,7 +40,7 @@ class HeapHelperTest extends TestCase
         $apiKey = $_SERVER['HEAP_API_KEY'];
 
         $heapConfiguration = new HeapConfiguration($apiKey, $appId);
-        $heapHelper = new Mitquinn\HeapHelper\HeapHelper($heapConfiguration);
+        $heapHelper = new HeapHelper($heapConfiguration);
         $this->setHeapHelper($heapHelper);
     }
 
