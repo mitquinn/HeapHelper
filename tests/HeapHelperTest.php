@@ -1,5 +1,7 @@
 <?php
 
+namespace Mitquinn\HeapHelper\Tests;
+
 use Mitquinn\HeapHelper\HeapConfiguration;
 use Mitquinn\HeapHelper\HeapHelper;
 use Mitquinn\HeapHelper\Resources\HeapAccount;

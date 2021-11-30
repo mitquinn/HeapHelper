@@ -24,5 +24,11 @@
             "Mitquinn\\HeapHelper\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Mitquinn\\HeapHelper\\Tests\\": "tests/",
+            "Mitquinn\\HeapHelper\\Examples\\": "examples/"
+        }
+    },
     "minimum-stability": "stable"
 }
